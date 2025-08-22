@@ -2,20 +2,30 @@ const authorization =
   "btPvqjuzJrQ8pCaDuu1OPYNnDqUQlepnJo86ma3BzeBDy1GzEWJe28rc";
 
 let fetchLink = "";
+let searchValue = "";
+const gallery = document.querySelector(".gallery");
+const form = document.querySelector(".search-form");
+const searchInput = document.querySelector(".search-input");
 
-const gallery=document.querySelector(".gallery")
+searchInput.addEventListener("input", updateInput);
+
+function updateInput(e) {
+  searchValue = e.target.value;
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(searchValue);
+});
 
 async function fetchApi(url) {
-  const dataFetch = await fetch(
-    url,
-    {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        Authorization: authorization,
-      },
-    }
-  );
+  const dataFetch = await fetch(url, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: authorization,
+    },
+  });
   const data = await dataFetch.json();
   return data;
 }
