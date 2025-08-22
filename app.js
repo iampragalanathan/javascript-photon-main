@@ -5,9 +5,9 @@ let fetchLink = "";
 
 const gallery=document.querySelector(".gallery")
 
-async function fetchApi() {
+async function fetchApi(url) {
   const dataFetch = await fetch(
-    "https://api.pexels.com/v1/curated?per_page=20&page=1",
+    url,
     {
       method: "GET",
       headers: {
