@@ -8,7 +8,7 @@ let searchPage = 1;
 const gallery = document.querySelector(".gallery");
 const form = document.querySelector(".search-form");
 const searchInput = document.querySelector(".search-input");
-const more=document/
+const more=document.querySelector(".more")
 
 searchInput.addEventListener("input", updateInput);
 
