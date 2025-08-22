@@ -15,7 +15,8 @@ function updateInput(e) {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(searchValue);
+  // console.log(searchValue);
+  searchPhotos(searchValue);
 });
 
 async function fetchApi(url) {
@@ -45,6 +46,18 @@ const generatePictures = (data) => {
     gallery.appendChild(galleryImg);
   });
 };
+
+async function searchPhotos(query) {
+  clear();
+  fetchLink = `https://api.pexels.com/v1/search?query=${query}+query&per_page=15&page=1`;
+  const data = await fetchApi(fetchLink);
+  generatePictures(data);
+}
+
+function clear() {
+  searchInput.value = "";
+  gallery.innerHTML = "";
+}
 
 async function curatedPhotos() {
   fetchLink = "https://api.pexels.com/v1/curated?per_page=20&page=1";
