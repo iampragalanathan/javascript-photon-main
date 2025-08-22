@@ -10,6 +10,8 @@ const form = document.querySelector(".search-form");
 const searchInput = document.querySelector(".search-input");
 const more=document.querySelector(".more")
 
+more.addEventListener("click",loadmore)
+
 searchInput.addEventListener("input", updateInput);
 
 function updateInput(e) {
