@@ -3,6 +3,8 @@ const authorization =
 
 let fetchLink = "";
 let searchValue = "";
+let curatedPage = 1;
+let searchPage = 1;
 const gallery = document.querySelector(".gallery");
 const form = document.querySelector(".search-form");
 const searchInput = document.querySelector(".search-input");
