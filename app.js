@@ -8,6 +8,7 @@ let searchPage = 1;
 const gallery = document.querySelector(".gallery");
 const form = document.querySelector(".search-form");
 const searchInput = document.querySelector(".search-input");
+const more=document/
 
 searchInput.addEventListener("input", updateInput);
 
@@ -66,5 +67,19 @@ async function curatedPhotos() {
   const data = await fetchApi(fetchLink);
   // console.log(data.photos);
   generatePictures(data);
+}
+
+async function loadmore(){
+  if(searchValue){
+    searchPage++
+    fetchLink =`https://api.pexels.com/v1/search?query=${searchValue}+query&per_page=15&page=${searchPage}`
+  }
+  else{
+
+    curatedPage++
+    fetchLink=`https://api.pexels.com/v1/curated?per_page=20&page=${curatedPage}`
+  }
+  const data=await fetchApi(fetchLink)
+  generatePictures(data)
 }
 curatedPhotos();
