@@ -29,7 +29,7 @@ const generatePictures = (data) => {
   
   <div class="gallery-info">
   <p>${photo.photographer}</p>
-  <a target="_blank" href="${photo.src.original}"></a>
+  <a target="_blank" href="${photo.src.original}">Download</a>
   </div>
   <img src="${photo.src.original}"/>`;
     gallery.appendChild(galleryImg);
@@ -37,7 +37,7 @@ const generatePictures = (data) => {
 };
 
 async function curatedPhotos() {
-  fetchLink = "https://api.pexels.com/v1/curated?per_page=15&page=1";
+  fetchLink = "https://api.pexels.com/v1/curated?per_page=20&page=1";
   const data = await fetchApi(fetchLink);
   // console.log(data.photos);
   generatePictures(data);
