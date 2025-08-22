@@ -3,6 +3,8 @@ const authorization =
 
 let fetchLink = "";
 
+const gallery=document.querySelector(".gallery")
+
 async function fetchApi() {
   const dataFetch = await fetch(
     "https://api.pexels.com/v1/curated?per_page=15&page=1",
